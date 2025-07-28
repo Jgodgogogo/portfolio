@@ -54,7 +54,7 @@ export function TextLoop({
           animate="animate"
           exit="exit"
           transition={transition}
-          variants={variants ? variants(currentIndex) : motionVariants}
+          variants={variants || motionVariants}
         >
           {items[currentIndex]}
         </motion.div>
