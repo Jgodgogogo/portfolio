@@ -1,0 +1,22 @@
+# 开发环境镜像
+FROM node:20-alpine
+
+WORKDIR /app
+
+# 安装热更新所需依赖（仅用于开发）
+RUN apk add --no-cache bash
+
+# 拷贝 package.json 并安装依赖
+COPY package*.json ./
+RUN npm install
+
+# 挂载源码目录（构建由本地触发）
+COPY . .
+
+# 开发环境变量
+ENV NODE_ENV=development
+
+EXPOSE 3000
+
+# 启动开发模式
+CMD ["npm", "run", "dev"]
