@@ -26,7 +26,7 @@ function useCountdown() {
 
 const TEXTS = [
   <span key="lost">
-    Powered by daughter’s smile.
+    Powered by coffee and my daughter’s smile.
   </span>,
   <span key="mart">© 2025 Jun Zhang.</span>,
 ]
@@ -40,11 +40,11 @@ export function Footer() {
         <TextLoop
           className="text-sm"
           interval={3.5}
-          variants={({ index }) => ({
-            initial: { y: index === 0 ? -20 : 20, rotateX: index === 0 ? -90 : 90, opacity: 0, filter: 'blur(4px)' },
+          variants={{
+            initial: { y: -20, rotateX: -90, opacity: 0, filter: 'blur(4px)' },
             animate: { y: 0, rotateX: 0, opacity: 1, filter: 'blur(0px)' },
-            exit: { y: index === 0 ? 20 : -20, rotateX: index === 0 ? 90 : -90, opacity: 0, filter: 'blur(4px)' },
-          })}
+            exit: { y: 20, rotateX: 90, opacity: 0, filter: 'blur(4px)' },
+          }}
         >
           {TEXTS}
         </TextLoop>
