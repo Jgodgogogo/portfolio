@@ -2,8 +2,9 @@
 import { cn } from '@/lib/utils';
 import { motion, SpringOptions, useSpring, useTransform } from 'motion/react';
 import { useEffect } from 'react';
+import type { ElementType } from 'react';
 
-type ValidTags = keyof JSX.IntrinsicElements;
+type ValidTags = ElementType;
 export type AnimatedNumberProps = {
   value: number;
   className?: string;
