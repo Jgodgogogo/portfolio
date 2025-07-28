@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes'
 import { SunIcon, MoonIcon, Globe } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { AnimatedBackground } from '@/components/ui/animated-background'
-import { ModeToggle } from '@/components/ui/mode-toggle'
+
 
 const dict = {
   en: { name: 'Jun Zhang', subs: ['Solution Designer', 'Frontend Engineer', 'Design Hobbyist'] },
