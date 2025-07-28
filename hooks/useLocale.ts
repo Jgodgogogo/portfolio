@@ -1,4 +1,4 @@
-]// hooks/useLocale.ts
+// hooks/useLocale.ts
 import { useState, useEffect } from 'react'
 
 const dict = {
