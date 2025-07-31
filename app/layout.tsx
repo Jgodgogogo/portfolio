@@ -12,14 +12,20 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: { default: 'TEST', template: '%s | Portfolio' },
-  description: 'Personal portfolio of Jun Zhang',
+  title: { default: 'Jun Zhang - Personal Space', template: '%s | Portfolio' },
+  description: 'A design portfolio showcase website of Jun',
+  icons: {
+    icon: '/favicon.png', // 或 '/favicon.svg' 等
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },  
 }
 
 const geist = Geist({ variable: '--font-geist', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
 
 // app/layout.tsx
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -37,7 +43,7 @@ export default function RootLayout({
           defaultTheme="system"
         >
           <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
-            <div className="relative mx-auto w-full max-w-screen-md flex-1 px-4 pt-20">
+            <div className="relative mx-auto w-full max-w-screen-md flex-1 px-2 py-8 md:pt-16 pb-8">
               <Header />
               {children}
               <Footer />
