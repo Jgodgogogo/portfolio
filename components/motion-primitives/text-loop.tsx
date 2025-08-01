@@ -1,6 +1,6 @@
 'use client'
 import { cn } from '@/lib/utils'
-import { motion, AnimatePresence, Transition, Variants } from 'motion/react'
+import { motion, AnimatePresence, Transition, Variants } from 'framer-motion'
 import { useState, useEffect, Children } from 'react'
 
 export type TextLoopProps = {
@@ -8,7 +8,7 @@ export type TextLoopProps = {
   className?: string
   interval?: number
   transition?: Transition
-  variants?: Variants
+  variants?: Variants | ((index: number) => Variants)
   onIndexChange?: (index: number) => void
   trigger?: boolean
   mode?: Parameters<typeof AnimatePresence>[0]['mode']
@@ -45,6 +45,12 @@ export function TextLoop({
     exit: { y: -20, opacity: 0, filter: 'blur(4px)' },
   }
 
+  // 获取最终的 variants
+  const getFinalVariants = () => {
+    if (!variants) return defaultVariants
+    return typeof variants === 'function' ? variants(currentIndex) : variants
+  }
+
   return (
     <div className={cn('relative inline-block whitespace-nowrap', className)}>
       <AnimatePresence mode={mode} initial={false}>
@@ -54,7 +60,7 @@ export function TextLoop({
           animate="animate"
           exit="exit"
           transition={transition}
-          variants={variants ? variants(currentIndex) : motionVariants}
+          variants={getFinalVariants()} // 使用处理后的 variants
         >
           {items[currentIndex]}
         </motion.div>
