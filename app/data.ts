@@ -66,7 +66,7 @@ export const PROJECTS: Project[] = [
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'JLR China',
-    title: 'Lead UX',
+    title: 'UX Lead',
     start: '2024',
     end: 'Present',
     link: '/https://linkedin.com/',
@@ -90,7 +90,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   },
   {
     company: 'General Motors',
-    title: 'Product Designer',
+    title: 'UX Designer',
     start: '2015',
     end: '2017',
     link: 'https://ibelick.com',
@@ -100,26 +100,26 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    title: 'Exploring the Intersection of Design, AI, and Design Engineering',
-    description: 'How AI is changing the way we design',
+    title: ' This is the first blog sample, talk about myself then',
+    description: 'Who am I, and what interesting fact of this guy',
     link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
     uid: 'blog-1'
   },
   {
-    title: 'Why I left my job to start my own company',
-    description: 'A deep dive into my decision to leave my job and start my own company',
+    title: 'An experiment of web design and responsive layout',
+    description: 'A deep dive into some of the design sample in front-end domain',
     link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
     uid: 'blog-2'
   },
   {
-    title: 'What I learned from my first year of freelancing',
-    description: 'A look back at my first year of freelancing and what I learned',
+    title: 'A new era to build your own IP, Ai is so powerful',
+    description: 'How I redesign and delivery the portfolio website by using Ai',
     link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
     uid: 'blog-3'
   },
   {
-    title: 'How to Export Metadata from MDX for Next.js SEO',
-    description: 'A guide on exporting metadata from MDX files to leverage Next.js SEO features.',
+    title: 'What I have learnt during my experience in Volvo cars',
+    description: 'Transit from a UX designer to a solution designer',
     link: '/blog/example-mdx-metadata',
     uid: 'blog-4'
   }
