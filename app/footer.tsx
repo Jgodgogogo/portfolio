@@ -78,6 +78,12 @@ export function Footer() {
       <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <TextLoop
           className="text-sm text-zinc-600 dark:text-zinc-400"
+          transition={{
+            type: 'spring',
+            stiffness: 150,
+            damping: 19,
+            mass: 1.2,
+          }}
           interval={3}
           variants={(index) => ({
             initial: { 
