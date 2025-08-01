@@ -1,13 +1,13 @@
 'use client';
 import { cn } from '@/lib/utils';
-import { motion, SpringOptions, useSpring, useTransform } from 'motion/react';
-import { useEffect } from 'react';
+import { motion, SpringOptions, useSpring, useTransform } from 'framer-motion';
+import React, { useEffect } from 'react'; // 确保导入 React
 
 export type AnimatedNumberProps = {
   value: number;
   className?: string;
   springOptions?: SpringOptions;
-  as?: React.ElementType;
+  as?: keyof React.JSX.IntrinsicElements | React.ComponentType<any>; // 使用 React.JSX
 };
 
 export function AnimatedNumber({
@@ -16,7 +16,7 @@ export function AnimatedNumber({
   springOptions,
   as = 'span',
 }: AnimatedNumberProps) {
-  const MotionComponent = motion.create(as as keyof JSX.IntrinsicElements);
+  const MotionComponent = motion(as); // 简化写法，不需要类型断言
 
   const spring = useSpring(value, springOptions);
   const display = useTransform(spring, (current) =>
