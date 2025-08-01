@@ -163,7 +163,6 @@ export default function ProjectsPage() {
                 <div className="relative h-full w-full rounded-[15px] bg-white dark:bg-zinc-950 overflow-hidden">
                   {/* Video/Cover */}
                   <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                    <ProjectVideo src={project.video} cover={project.cover} />
                   </div>
                   
                   {/* Project Info */}

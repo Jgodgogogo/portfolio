@@ -78,12 +78,14 @@ type SlidingNumberProps = {
   value: number;
   padStart?: boolean;
   decimalSeparator?: string;
+  className?: string; // 添加这行
 };
 
 export function SlidingNumber({
   value,
   padStart = false,
   decimalSeparator = '.',
+  className = '', // 新增这行
 }: SlidingNumberProps) {
   const absValue = Math.abs(value);
   const [integerPart, decimalPart] = absValue.toString().split('.');
@@ -96,7 +98,7 @@ export function SlidingNumber({
   );
 
   return (
-    <div className='flex items-center'>
+    <div className='flex items-center ${className}' >
       {value < 0 && '-'}
       {integerDigits.map((_, index) => (
         <Digit

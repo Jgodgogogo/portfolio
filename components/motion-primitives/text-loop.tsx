@@ -12,6 +12,7 @@ export type TextLoopProps = {
   onIndexChange?: (index: number) => void
   trigger?: boolean
   mode?: Parameters<typeof AnimatePresence>[0]['mode']
+  custom?: number // 添加 custom 属性声明
 }
 
 export function TextLoop({
@@ -23,6 +24,7 @@ export function TextLoop({
   onIndexChange,
   trigger = true,
   mode = 'popLayout',
+  custom, // 接收 custom 属性
 }: TextLoopProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const items = Children.toArray(children)
@@ -45,10 +47,11 @@ export function TextLoop({
     exit: { y: -20, opacity: 0, filter: 'blur(4px)' },
   }
 
-  // 获取最终的 variants
   const getFinalVariants = () => {
-    if (!variants) return defaultVariants
-    return typeof variants === 'function' ? variants(currentIndex) : variants
+    if (!variants) return motionVariants
+    return typeof variants === 'function' 
+      ? variants(custom !== undefined ? custom : currentIndex)
+      : variants
   }
 
   return (
@@ -60,7 +63,7 @@ export function TextLoop({
           animate="animate"
           exit="exit"
           transition={transition}
-          variants={getFinalVariants()} // 使用处理后的 variants
+          variants={getFinalVariants()}
         >
           {items[currentIndex]}
         </motion.div>

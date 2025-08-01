@@ -13,13 +13,11 @@ function useCountdown(targetType?: 'work' | 'home' | 'weekend') {
       const now = new Date()
       const target = new Date(now)
       
-      // 设置目标时间
       if (targetType === 'home') {
-        target.setHours(18, 0, 0, 0) // 下班时间 18:00
+        target.setHours(18, 0, 0, 0)
       } else if (targetType === 'work') {
-        target.setHours(9, 0, 0, 0)  // 上班时间 9:00
+        target.setHours(9, 0, 0, 0)
       } else {
-        // 周末不显示具体倒计时
         return
       }
 
@@ -32,9 +30,8 @@ function useCountdown(targetType?: 'work' | 'home' | 'weekend') {
     return () => clearInterval(id)
   }, [targetType])
 
-  // 强制两位数显示（确保即使数值为0也显示00）
   const formatTime = (time: number) => {
-    const normalized = Math.max(0, time) // 防止负数
+    const normalized = Math.max(0, time)
     return String(normalized).padStart(2, '0')
   }
 
@@ -57,7 +54,7 @@ export function Footer() {
   useEffect(() => {
     const updateType = () => {
       const now = new Date()
-      const isWeekend = [0, 6].includes(now.getDay()) // 0是周日，6是周六
+      const isWeekend = [0, 6].includes(now.getDay())
       const hours = now.getHours()
       
       setCountdownType(
@@ -82,10 +79,10 @@ export function Footer() {
         <TextLoop
           className="text-sm text-zinc-600 dark:text-zinc-400"
           interval={3}
-          variants={(custom: number) => ({ // 使用 custom 接收参数
+          variants={(index) => ({
             initial: { 
-              y: custom === 0 ? -20 : 20, 
-              rotateX: custom === 0 ? -90 : 90,
+              y: index === 0 ? -20 : 20, 
+              rotateX: index === 0 ? -90 : 90,
               opacity: 0,
               filter: 'blur(4px)' 
             },
@@ -96,13 +93,12 @@ export function Footer() {
               filter: 'blur(0px)' 
             },
             exit: { 
-              y: custom === 0 ? 20 : -20,
-              rotateX: custom === 0 ? 90 : -90,
+              y: index === 0 ? 20 : -20,
+              rotateX: index === 0 ? 90 : -90,
               opacity: 0,
               filter: 'blur(4px)' 
             }
           })}
-          custom={index} // 通过 custom 传递 index
         >
           {TEXTS}
         </TextLoop>
@@ -115,17 +111,16 @@ export function Footer() {
           ) : (
             <>
               <div className="flex items-baseline space-x-1 text-lg font-medium text-zinc-800 dark:text-zinc-200">
-                <SlidingNumber className="font-mono" value={Number(h)} padStart  />
+                <SlidingNumber className="font-mono" value={Number(h)} padStart />
                 <span>:</span>
-                <SlidingNumber className="font-mono" value={Number(m)} padStart  />
+                <SlidingNumber className="font-mono" value={Number(m)} padStart />
                 <span>:</span>
-                <SlidingNumber className="font-mono" value={Number(s)} padStart  />
+                <SlidingNumber className="font-mono" value={Number(s)} padStart />
               </div>
               <span className="ml-2 text-base text-zinc-600 dark:text-zinc-400">
                 {countdownType === 'home' 
                   ? "until freedom o'clock" 
                   : "until tomorrow's grind"}
-
               </span>
             </>
           )}
