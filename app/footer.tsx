@@ -82,26 +82,27 @@ export function Footer() {
         <TextLoop
           className="text-sm text-zinc-600 dark:text-zinc-400"
           interval={3}
-          variants={({ index }) => ({
+          variants={(custom: number) => ({ // 使用 custom 接收参数
             initial: { 
-              y: index === 0 ? -20 : 20, 
-              rotateX: index === 0 ? -90 : 90, 
-              opacity: 0, 
+              y: custom === 0 ? -20 : 20, 
+              rotateX: custom === 0 ? -90 : 90,
+              opacity: 0,
               filter: 'blur(4px)' 
             },
             animate: { 
               y: 0, 
-              rotateX: 0, 
-              opacity: 1, 
+              rotateX: 0,
+              opacity: 1,
               filter: 'blur(0px)' 
             },
             exit: { 
-              y: index === 0 ? 20 : -20, 
-              rotateX: index === 0 ? 90 : -90, 
-              opacity: 0, 
+              y: custom === 0 ? 20 : -20,
+              rotateX: custom === 0 ? 90 : -90,
+              opacity: 0,
               filter: 'blur(4px)' 
-            },
+            }
           })}
+          custom={index} // 通过 custom 传递 index
         >
           {TEXTS}
         </TextLoop>
