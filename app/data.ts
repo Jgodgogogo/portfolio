@@ -4,7 +4,7 @@ interface Project {
   link: string
   video: string
   id: string
-  coverImage: string // 添加封面图片路径
+  coverImage: string
 }
 
 interface WorkExperience {
@@ -35,7 +35,7 @@ export const PROJECTS: Project[] = [
     link: '/project/1',
     video: '1.mp4',
     id: 'project1',
-    coverImage: '/1.jpg' // 添加封面图片路径
+    coverImage: '/1.jpg'
   },
   {
     name: 'Volvo One HMI OS',
@@ -100,48 +100,32 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    title: ' This is the first blog sample, talk about myself then',
-    description: 'Who am I, and what interesting fact of this guy',
+    title: 'Exploring the Intersection of Design, AI, and Design Engineering',
+    description: 'A deep dive into how artificial intelligence is reshaping the landscape of design engineering.',
     link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-    uid: 'blog-1'
+    uid: 'exploring-the-intersection-of-design-ai-and-design-engineering'
   },
   {
-    title: 'An experiment of web design and responsive layout',
-    description: 'A deep dive into some of the design sample in front-end domain',
-    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-    uid: 'blog-2'
-  },
-  {
-    title: 'A new era to build your own IP, Ai is so powerful',
-    description: 'How I redesign and delivery the portfolio website by using Ai',
-    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-    uid: 'blog-3'
-  },
-  {
-    title: 'What I have learnt during my experience in Volvo cars',
-    description: 'Transit from a UX designer to a solution designer',
+    title: 'Example MDX Metadata',
+    description: 'This is an example of MDX metadata.',
     link: '/blog/example-mdx-metadata',
-    uid: 'blog-4'
+    uid: 'example-mdx-metadata'
   }
 ]
+
+export const EMAIL = 'jun.zhang@example.com'
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    label: 'Github',
-    link: 'https://github.com/ibelick'
+    label: 'LinkedIn',
+    link: 'https://linkedin.com/in/junzhang'
+  },
+  {
+    label: 'GitHub',
+    link: 'https://github.com/junzhang'
   },
   {
     label: 'Twitter',
-    link: 'https://twitter.com/ibelick'
-  },
-  {
-    label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/ibelick'
-  },
-  {
-    label: 'Instagram',
-    link: 'https://www.instagram.com/ibelick'
+    link: 'https://twitter.com/junzhang'
   }
-]
-
-export const EMAIL = 'your@email.com'
+] 

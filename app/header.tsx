@@ -62,8 +62,8 @@ export function Header() {
         </Link>
       </div>
 
-      {/* 右侧模式切换组件 */}
-      <div className="flex items-center gap-2">
+      {/* 右侧模式切换组件 - 修复对齐 */}
+      <div className="flex items-center">
         <AnimatedBackground
           className="pointer-events-none rounded-lg bg-zinc-100 dark:bg-zinc-800"
           defaultValue={theme}

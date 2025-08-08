@@ -74,7 +74,7 @@ export function Footer() {
   const { h, m, s, isWeekend } = useCountdown(countdownType)
 
   return (
-    <footer className="mt-24 border-t border-zinc-100 py-4 px-4 sm:px-6 dark:border-zinc-800">
+    <footer className="mt-24 border-t border-zinc-100 py-4 dark:border-zinc-800">
       <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <TextLoop
           className="text-sm text-zinc-600 dark:text-zinc-400"
